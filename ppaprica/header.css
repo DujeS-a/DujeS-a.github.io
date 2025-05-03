@@ -1,0 +1,17 @@
+header {
+    background-color: white;
+}
+ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 5px;
+}
+li {
+    margin-right: 25px;
+    color: black;
+    font-size: large;
+}
+ul li:first-child {
+    margin-right: auto;
+}

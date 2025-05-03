@@ -1,0 +1,60 @@
+.right {
+    float: right;
+    width: calc(50% - 6rem);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: calc(100vh - 116.8px);
+}
+form .info {
+    font-size: large;
+    padding: 10px;
+}
+/* form .info12 .info1 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    flex-flow: row;
+    box-shadow: .2em .2em .2em red;
+    margin-right: 50px; */
+
+h1 {
+    color: #343a40;
+    font-family: 'Varela Round', sans-serif;
+}
+h1, h2 {
+    font-size: 1.5rem;
+}
+.contact {
+    box-shadow: .9em .9em .9em rgb(218, 213, 213);
+    padding: 5px;
+    color: #bd942e;
+}
+button {
+    font-size: 15px;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #bd942e;
+    border-style: none;
+    color: white;
+    font-weight: 600;
+    border-radius: .2em;
+}
+.posjeti:nth-last-child {
+    float: right;
+    margin-bottom: 10px;
+}
+input {
+    padding: 15px 10px 15px 10px;
+    box-shadow: .9em .9em .9em rgb(218, 213, 213);
+    border: white;
+    border-radius: .2em;
+}
+textarea {
+    padding: 15px 10px 15px 10px;
+    box-shadow: .9em .9em .9em rgb(218, 213, 213);
+    border: white;
+    border-radius: .2em;
+}
+input .info4 {
+    box-shadow: none;
+}

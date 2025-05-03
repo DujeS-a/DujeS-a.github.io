@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            float: right;
+            width: 50%;
+        }
+        body {
+  width: 90%;
+  margin: 0 auto;
+  text-align: left;
+}
+        #content {
+  overflow: auto;
+}
+        #nav, #feature, #footer {
+  margin: 1%;
+}
+        .column1, .column2 {
+  width: 50%;
+  float: left;
+  margin: 1%;
+}
+        .column3 {
+  margin-right: 0%;
+  width: 100%;
+}
+        li {
+  display: inline;
+  padding: 0.5em;
+}
+        #nav, #footer {
+  background-color: #efefef;
+  padding: 0.5em 0;
+}
+        #feature, .article {
+  margin-bottom: 1em;
+  background-color: #efefef;
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div id="header">
+        <div id="nav">
+          <ul>
+            <li><h1>TOTALNA RASPRODAJA NEKORIŠTENIH REZERVNIH DIJELOVA MEHANIZACIJE</h1></li>
+            <li><h2>Nazovite nas na broj 091/43 666 09 ili pošaljite upit:</h2></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <div id="feature">
+          <p>
+            <label for="text" name="ime">VAŠE IME I PREZIME</label>
+            <br>
+            <input type="text" placeholder="Unesite svoje ime">
+          </p>
+        </div>
+        <div class="article column1">
+          <p>
+            <label for="text" name="number">BROJ TELEFONA</label>
+            <br>
+            <input type="text" placeholder="Unesite broj telefona">
+          </p>
+        </div>
+        <div class="article column2">
+          <p>
+            <label for="email" name="mail">EMAIL ADRESA</label>
+            <br>
+            <input type="text" placeholder="Unesite Email">
+          </p>
+        </div>
+      </div>
+      <div id="footer">
+        <p>
+          <p>
+            <label for="text" id="text" name="kontakt">KONTAKTIRAJTE NAS:</label> <br>
+            <textarea name="text" maxlength="400" placeholder="Unesite poruku"></textarea>
+          </p>
+        </p>
+      </div>
+    </div>
+</body>
+</html>

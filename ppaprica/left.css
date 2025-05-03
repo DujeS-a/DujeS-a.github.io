@@ -1,0 +1,20 @@
+.left {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .8)), url(slike/left.jpg) center center no-repeat;
+    background-size: cover;
+    float: left;
+    width: calc(50% - 6rem);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: calc(100vh - 109.8px);
+    
+}
+.h2l {
+    font-size: 2.5rem;
+    color: white;
+}
+.lista   {
+    color:  white;
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
