@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="accounts/1.css">
+</head>
+
+<body>
+  <section id="shop-form">
+    <h2>Purchase Account</h2>
+    <div id="account-details">
+    </div>
+    <form id="purchase-form">
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required><br>
+
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="credentials">Login Credentials (username/password):</label>
+      <input type="text" id="credentials" name="credentials" required><br>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required><br>
+
+      <button type="submit">Confirm Purchase</button>
+      <button type="button" id="cancel-button">Cancel</button>
+    </form>
+  </section>
+  <script>
+    document.getElementById("cancel-button").addEventListener("click", function () {
+      window.location.href = "/index.html";
+    });
+  </script>
+  <script>
+    const selectedAccountJSON = sessionStorage.getItem('selectedAccount');
+    const accountDetailsDiv = document.getElementById('account-details');
+
+    if (selectedAccountJSON) {
+      try {
+        const selectedAccount = JSON.parse(selectedAccountJSON);
+
+        accountDetailsDiv.innerHTML = `
+                    <h3>Selected Account: ${selectedAccount.title}</h3>
+                    <p><strong>ID:</strong> ${selectedAccount.id || 'N/A'}</p>
+                    <p><strong>Price:</strong> $${selectedAccount.price || 'N/A'}</p>
+                    <p><strong>Region:</strong> ${selectedAccount.region || 'N/A'}</p>
+                    <p><strong>Level:</strong> ${selectedAccount.level || 'N/A'}</p>
+                    <p><strong>Description:</strong> ${selectedAccount.description || 'No description provided.'}</p>
+                    `;
+      } catch (e) {
+        console.error("Error parsing selected account details:", e);
+        accountDetailsDiv.innerHTML =
+          `<p>Error loading account details. Please go back and select an account again.</p>`;
+      }
+    } else {
+      accountDetailsDiv.innerHTML =
+        `<p>No account selected. Please go back to the <a href="/index.html">accounts page</a> to choose an account.</p>`;
+    }
+
+    document.getElementById("cancel-button").addEventListener("click", function () {
+      window.location.href =
+      "/index.html"; 
+    });
+
+    document.getElementById("purchase-form").addEventListener("submit", function (event) {
+      event.preventDefault(); 
+
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
+      const credentials = document.getElementById('credentials').value;
+      const phone = document.getElementById('phone').value;
+
+      const selectedAccount = JSON.parse(sessionStorage.getItem('selectedAccount'));
+
+      if (selectedAccount) {
+        console.log("--- Purchase Details ---");
+        console.log("Account:", selectedAccount.title, "(ID:", selectedAccount.id + ")");
+        console.log("Price:", "$" + selectedAccount.price);
+        console.log("Buyer Name:", firstName, lastName);
+        console.log("Email:", email);
+        console.log("Credentials (Example):", credentials); 
+        console.log("Phone:", phone);
+
+        alert(`Thank you, ${firstName}! Your purchase request for "${selectedAccount.title}" has been received.`);
+
+
+        sessionStorage.removeItem('selectedAccount'); 
+      } else {
+        alert("No account selected for purchase. Please go back and choose one.");
+      }
+    });
+  </script>
+</body>
+
+</html>

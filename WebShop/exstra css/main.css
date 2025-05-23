@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('fonts/BeaufortforLOL-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#main {
+    margin-top: 119px;
+    margin-left: 12%;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #facf34;
+    font-size: 25px;
+    font-family: 'CustomFont', sans-serif;
+}
+body {
+    background-image: url('slike/League-of-Legends-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}

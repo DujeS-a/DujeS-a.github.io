@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('fonts/BeaufortforLOL-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.accounts {
+      display: grid;
+  grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      margin-left: 12%;
+      font-family: 'CustomFont', sans-serif;
+    }
+
+    .account {
+      border: 1px solid #ccc;
+      padding: 15px;
+      text-align: center;
+      background-color: rgba(247, 236, 236, 0.611);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .account img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .account h3, .account p {
+      margin: 10px 0;
+    }
+
+    .account button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .account button:hover {
+      background: #333;
+    }

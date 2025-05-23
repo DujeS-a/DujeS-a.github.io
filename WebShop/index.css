@@ -1,0 +1,187 @@
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100vh;
+    width: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease-in-out;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+#menu ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#menu li {
+    list-style: none;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#menu li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/BeaufortforLOL-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#main {
+    margin-top: 119px;
+    margin-left: 12%;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #facf34;
+    font-size: 25px;
+    font-family: 'CustomFont', sans-serif;
+}
+
+body {
+    background-image: url('slike/League-of-Legends-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/BeaufortforLOL-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#header {
+    background-color: rgba(0, 0, 0, 0.611);
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 85%;
+    z-index: 1000;
+    font-family: 'CustomFont', sans-serif;
+    backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #f1d779;
+    font-family: 'CustomFont', sans-serif;
+}
+
+#header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'CustomFont', sans-serif;
+}
+
+#header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    font-family: 'CustomFont', sans-serif;
+}
+
+#header nav a:hover {
+    color: #facf34;
+}
+
+#footer {
+    margin-left: 12%;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'CustomFont', sans-serif;
+    color: #facf34;
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/BeaufortforLOL-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.accounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin-left: 12%;
+    font-family: 'CustomFont', sans-serif;
+}
+
+.account {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    background-color: rgba(247, 236, 236, 0.611);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.account img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.account h3,
+.account p {
+    margin: 10px 0;
+}
+
+.account button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.account button:hover {
+    background: #333;
+}

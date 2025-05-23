@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/BeaufortforLOL-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#header {
+    background-color: rgba(0, 0, 0, 0.611);
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 85%;
+    z-index: 1000;
+    font-family: 'CustomFont', sans-serif;
+    backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #f1d779;
+    font-family: 'CustomFont', sans-serif;
+}
+
+#header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'CustomFont', sans-serif;
+}
+
+#header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    font-family: 'CustomFont', sans-serif;
+}
+
+#header nav a:hover {
+    color: #facf34;
+}

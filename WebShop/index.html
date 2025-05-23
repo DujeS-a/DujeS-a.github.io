@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell your League</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <aside id="menu">
+    <h2>Menu</h2>
+    <ul>
+      <li>
+        <label for="sort">Sort by:</label>
+        <select name="sort" id="sort">
+          <option value="price-low-to-high">Price: Low to High</option>
+          <option value="price-high-to-low">Price: High to Low</option>
+          <option value="region">Region</option>
+          <option value="rank-low-to-high">Rank Low to High</option>
+          <option value="rank-high-to-low">Rank High to Low</option>
+        </select>
+      </li>
+    </ul>
+  </aside>
+
+  <header id="header">
+    <h1>Sell your League</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h2>Home</h2>
+    <p>Welcome to our website!</p>
+  </main>
+
+  <div class="accounts">
+    <div class="account" data-price="30" data-rank="Gold" data-region="EUW">
+      <img src="slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg" alt="Gold Account" />
+      <h3>Gold III Account</h3>
+      <p>Price: $30</p>
+      <p>Region: EUW</p>
+      <button class="buy-button"
+        data-id="acc001"
+        data-title="Gold III Account"
+        data-price="30"
+        data-region="EUW"
+        data-level="120"
+        data-description="Solid Gold III account.">
+        Buy
+      </button>
+    </div>
+
+    <div class="account" data-price="60" data-rank="Platinum" data-region="NA">
+      <img src="slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg" alt="Platinum Account" />
+      <h3>Platinum IV Account</h3>
+      <p>Price: $60</p>
+      <p>Region: NA</p>
+      <button class="buy-button"
+        data-id="acc002"
+        data-title="Platinum IV Account"
+        data-price="60"
+        data-region="NA"
+        data-level="140"
+        data-description="Great for competitive games.">
+        Buy
+      </button>
+    </div>
+
+    <div class="account" data-price="15" data-rank="Bronze" data-region="EUNE">
+      <img src="slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg" alt="Bronze Account" />
+      <h3>Bronze II Account</h3>
+      <p>Price: $15</p>
+      <p>Region: EUNE</p>
+      <button class="buy-button"
+        data-id="acc003"
+        data-title="Bronze II Account"
+        data-price="15"
+        data-region="EUNE"
+        data-level="80"
+        data-description="Budget-friendly starter account.">
+        Buy
+      </button>
+    </div>
+
+    <div class="account" data-price="55" data-rank="Bronze" data-region="EUNE">
+      <img src="slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg" alt="Bronze Account" />
+      <h3>Bronze II Account</h3>
+      <p>Price: $55</p>
+      <p>Region: EUNE</p>
+      <button class="buy-button"
+        data-id="acc004"
+        data-title="Bronze II Account"
+        data-price="55"
+        data-region="EUNE"
+        data-level="90"
+        data-description="Well-equipped with skins.">
+        Buy
+      </button>
+    </div>
+
+    <div class="account" data-price="25" data-rank="Platinum" data-region="EUW">
+      <img src="slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg" alt="Platinum Account" />
+      <h3>Platinum III Account</h3>
+      <p>Price: $25</p>
+      <p>Region: EUW</p>
+      <button class="buy-button"
+        data-id="acc005"
+        data-title="Platinum III Account"
+        data-price="25"
+        data-region="EUW"
+        data-level="100"
+        data-description="High winrate account.">
+        Buy
+      </button>
+    </div>
+
+    <div class="account" data-price="115" data-rank="Master" data-region="EUNE">
+      <img src="slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg" alt="Master Account" />
+      <h3>Master LP 66 Account</h3>
+      <p>Price: $115</p>
+      <p>Region: EUNE</p>
+      <button class="buy-button"
+        data-id="acc006"
+        data-title="Master LP 66 Account"
+        data-price="115"
+        data-region="EUNE"
+        data-level="220"
+        data-description="Top-tier ranked account.">
+        Buy
+      </button>
+    </div>
+
+    <div class="account" data-price="10" data-rank="Iron" data-region="NA">
+      <img src="slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg" alt="Iron Account" />
+      <h3>Iron I Account</h3>
+      <p>Price: $10</p>
+      <p>Region: NA</p>
+      <button class="buy-button"
+        data-id="acc007"
+        data-title="Iron I Account"
+        data-price="10"
+        data-region="NA"
+        data-level="60"
+        data-description="Basic account for casual play.">
+        Buy
+      </button>
+    </div>
+
+  </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sortSelect = document.getElementById("sort");
+      const accountContainer = document.querySelector(".accounts");
+
+      const rankOrder = [
+        "Iron", "Bronze", "Silver", "Gold",
+        "Platinum", "Emerald", "Diamond",
+        "Master", "GrandMaster", "Challenger"
+      ];
+
+      sortSelect.addEventListener("change", () => {
+        const accounts = Array.from(accountContainer.children);
+        const value = sortSelect.value;
+
+        accounts.sort((a, b) => {
+          const priceA = +a.dataset.price;
+          const priceB = +b.dataset.price;
+          const rankA = a.dataset.rank;
+          const rankB = b.dataset.rank;
+          const regionA = a.dataset.region;
+          const regionB = b.dataset.region;
+
+          if (value === "price-low-to-high") return priceA - priceB;
+          if (value === "price-high-to-low") return priceB - priceA;
+          if (value === "region") return regionA.localeCompare(regionB);
+          if (value === "rank-low-to-high") return rankOrder.indexOf(rankA) - rankOrder.indexOf(rankB);
+          if (value === "rank-high-to-low") return rankOrder.indexOf(rankB) - rankOrder.indexOf(rankA);
+          return 0;
+        });
+
+        accountContainer.innerHTML = "";
+        accounts.forEach(acc => accountContainer.appendChild(acc));
+      });
+
+      document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', function () {
+          const accountDetails = {
+            id: this.dataset.id,
+            title: this.dataset.title,
+            price: this.dataset.price,
+            region: this.dataset.region,
+            level: this.dataset.level,
+            description: this.dataset.description
+          };
+
+          sessionStorage.setItem('selectedAccount', JSON.stringify(accountDetails));
+          window.location.href = 'accounts/shop1.html';
+        });
+      });
+    });
+  </script>
+
+  <footer id="footer">
+    <p>&copy; 2025 Sell your League</p>
+  </footer>
+</body>
+
+</html>
