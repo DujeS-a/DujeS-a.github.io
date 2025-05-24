@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cozy Corner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Lora', serif;
+        margin: 0;
+        padding: 30px 50px;
+        background-color: #fdfaf6;
+        color: #5d5443;
+        line-height: 1.6;
+    }
+
+    h1 {
+        font-family: 'Playfair Display', serif;
+        color: #6a5c4c; 
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    h3 {
+        font-family: 'Playfair Display', serif;
+        color: #7d6e5d;
+        margin-top: 0;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed #d4c8b0;
+        padding-bottom: 10px;
+    }
+
+    .container {
+        display: flex;
+        gap: 50px;
+        max-width: 900px; 
+        margin: 0 auto; 
+    }
+
+    .left {
+        flex: 1; 
+    }
+
+    .right {
+        flex: 1.5; 
+    }
+
+    #form {
+        background-color: #f7f3ed; 
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid #e0d8c8; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    }
+
+    label {
+        font-weight: bold;
+        color: #6a5c4c;
+        display: block; 
+        margin-bottom: 8px;
+    }
+
+    #input { 
+        width: calc(100% - 20px); 
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #d4c8b0; 
+        background-color: #fff; /
+        font-family: 'Lora', serif;
+        color: #5d5443;
+        min-height: 120px; 
+        resize: vertical; /
+    }
+
+    #input:focus {
+        outline: none;
+        border-color: #bfaea0; 
+        box-shadow: 0 0 0 0.2rem rgba(191, 174, 160, 0.25);
+    }
+
+    button[type="submit"] {
+        background-color: #a0937d; 
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Lora', serif;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        display: block; 
+        margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #8c7f6c; 
+    }
+
+    #posts {
+        width: 100%; 
+    }
+
+    #posts div { 
+        background-color: #f9f7f2; 
+        border: 1px solid #e0d8c8;
+        border-left: 4px solid #bfaea0;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    #posts div p {
+        margin: 0;
+        flex-grow: 1; 
+        padding-right: 15px; 
+        color: #5d5443;
+    }
+
+    .options {
+        display: flex;
+        gap: 20px; 
+        flex-shrink: 0; 
+    }
+
+    .options i {
+        cursor: pointer;
+        color: #9c8b7e; 
+        transition: color 0.3s ease;
+    }
+
+    .options i:hover {
+        color: #6a5c4c;
+    }
+
+    #msg {
+        color: #c06c5c;
+        font-style: italic;
+        margin-top: 10px;
+        min-height: 1.2em; 
+    }
+</style>
+</head>
+<body>
+    <h1>My Cozy Corner</h1> <div class="container">
+        <div class="left">
+            <form id="form">
+                <label for="input">Share your thoughts...</label> <textarea name="post" id="input" cols="30" rows="10"></textarea>
+                <div id="msg"></div>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        <div class="right">
+            <h3>Your Musings</h3> <div id="posts">
+                <div>
+                    <p>Gathered some wildflowers by the meadow today, they smell divine!</p>
+                    <span class="options">
+                        <i onClick="editPost(this)" class="fas fa-edit"></i>
+                        <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
+                    </span>
+                </div>
+                <div>
+                    <p>The scent of freshly baked bread is filling the kitchen. Nothing beats a quiet morning.</p>
+                    <span class="options">
+                        <i onClick="editPost(this)" class="fas fa-edit"></i>
+                        <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
+                    </span>
+                </div>
+                </div>
+        </div>
+    </div>
+
+<script>
+    let form = document.getElementById("form");
+    let input = document.getElementById("input");
+    let msg = document.getElementById("msg");
+    let posts = document.getElementById("posts");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("button clicked");
+        formValidation();
+    });
+
+    let formValidation = () => {
+        if (input.value.trim() === "") { 
+            msg.innerHTML = "Post cannot be blank, dear."; 
+            console.log("failure");
+        } else {
+            acceptData();
+            console.log("successs");
+            msg.innerHTML = "";
+        }
+    };
+
+
+    let allPostsData = [];
+
+    let acceptData = () => {
+
+        let currentPostData = { text: input.value };
+        allPostsData.push(currentPostData);
+        createPost(currentPostData); 
+        console.log(allPostsData);
+    };
+
+    let createPost = (postData) => { 
+        posts.innerHTML += `
+        <div>
+            <p>${postData.text}</p>
+            <span class="options">
+                <i onClick="editPost(this)" class="fas fa-edit"></i>
+                <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
+            </span>
+        </div>
+        `;
+        input.value = ""; 
+    };
+
+    let deletePost = (e) => {
+        e.parentElement.parentElement.remove();
+    };
+
+    let editPost = (e) => {
+        let postElement = e.parentElement.parentElement;
+        let postTextElement = postElement.querySelector("p"); 
+        input.value = postTextElement.innerHTML;
+        postElement.remove();
+    };
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cottage Core To-Do List</title>
+    <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"
+></script>
+<style>
+    body {
+        font-family: 'Lora', serif;
+        margin: 0 50px;
+        background-color: #f4f1e9; 
+        background-image: url('https://www.transparenttextures.com/patterns/lined-paper.png'); 
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .app {
+        background-color: #fff;
+        width: 330px; 
+        height: 550px; 
+        border: 2px solid #d4c8b0; 
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    }
+
+    h4.mb-3 {
+        font-family: 'Playfair Display', serif; 
+        color: #6b5t42; 
+        text-align: center;
+        font-weight: 700;
+    }
+
+    #addNew {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #e9e4d9; 
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #addNew:hover {
+        background-color: #d4c8b0; 
+    }
+
+    .fa-plus {
+        background-color: #bfaea0; 
+        color: #fff;
+        padding: 5px;
+        border-radius: 50%; 
+    }
+
+    #msg {
+        color: #c06c5c; 
+        font-style: italic;
+    }
+
+    #tasks {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 1.5rem; 
+        max-height: 350px; 
+        overflow-y: auto;
+        padding-right: 10px; 
+    }
+
+ 
+    #tasks::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    #tasks::-webkit-scrollbar-track {
+        background: #f4f1e9;
+    }
+
+    #tasks::-webkit-scrollbar-thumb {
+        background: #d4c8b0;
+        border-radius: 10px;
+    }
+
+    #tasks div {
+        border: 2px dashed #d4c8b0; 
+        background-color: #f9f7f2; 
+        border-radius: 8px;
+        padding: 10px;
+        display: grid;
+        gap: 5px;
+    }
+
+    #tasks div .options {
+        justify-self: end; 
+        display: flex;
+        gap: 20px;
+    }
+
+    #tasks div .options i {
+        cursor: pointer;
+        color: #9c8b7e; 
+        transition: color 0.3s ease;
+    }
+
+    #tasks div .options i:hover {
+        color: #6b5t42; 
+    }
+
+    .form-control, .form-select {
+        border-color: #d4c8b0; 
+    }
+    .form-control:focus, .form-select:focus {
+        border-color: #bfaea0;
+        box-shadow: 0 0 0 0.25rem rgba(191, 174, 160, 0.25);
+    }
+    .btn-primary {
+        background-color: #8b7d6b; 
+        border-color: #8b7d6b;
+    }
+    .btn-primary:hover {
+        background-color: #6b5t42;
+        border-color: #6b5t42;
+    }
+</style>
+</head>
+<body>
+    <div class="app">
+  <h4 class="mb-3">My To-Do List</h4>
+
+  <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
+    <span>Add a New Task</span>
+    <i class="fas fa-plus"></i>
+  </div>
+<h5 class="text-center my-3" style="color: #6b5t42;">Tasks</h5>
+
+<div id="tasks"></div>
+<form
+  class="modal fade"
+  id="form"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #f9f7f2; border-color: #d4c8b0;">
+      <div class="modal-header" style="border-bottom-color: #d4c8b0;">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Playfair Display', serif; color: #6b5t42;">Add a New Task</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>Task Title</p>
+        <input type="text" class="form-control" name="" id="textInput" />
+        <div id="msg"></div>
+        <br />
+        <p>Due Date</p>
+        <input type="date" class="form-control" name="" id="dateInput" />
+        <br />
+        <p>Description</p>
+        <textarea
+          name=""
+          class="form-control"
+          id="textarea"
+          cols="30"
+          rows="5"
+        ></textarea>
+      </div>
+      <div class="modal-footer" style="border-top-color: #d4c8b0;">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" id="add" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+    let form = document.getElementById("form");
+let textInput = document.getElementById("textInput");
+let dateInput = document.getElementById("dateInput");
+let textarea = document.getElementById("textarea");
+let msg = document.getElementById("msg");
+let tasks = document.getElementById("tasks");
+let add = document.getElementById("add");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  formValidation();
+});
+
+let formValidation = () => {
+  if (textInput.value === "") {
+    console.log("failure");
+    msg.innerHTML = "Task cannot be blank";
+  } else {
+    acceptData();
+    add.setAttribute("data-bs-dismiss", "modal");
+    add.click();
+
+    (() => {
+      add.setAttribute("data-bs-dismiss", "");
+    })();
+    console.log("success");
+    msg.innerHTML = "";
+  }
+};
+let data = [];
+
+
+let acceptData = () => {
+  data.push({
+    text: textInput.value,
+    date: dateInput.value,
+    description: textarea.value,
+    
+  });
+  createTasks();
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
+};
+let createTasks = () => {
+  tasks.innerHTML = "";
+  data.map((x, y) => {
+    return (tasks.innerHTML += `
+    <div id=${y}>
+          <span class="fw-bold">${x.text}</span>
+          <span class="small text-secondary">${x.date}</span>
+          <p>${x.description}</p>
+
+          <span class="options">
+            <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
+            <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
+          </span>
+        </div>
+    `);
+  });
+
+  resetForm();
+};
+let resetForm = () => {
+  textInput.value = "";
+  dateInput.value = "";
+  textarea.value = "";
+};
+let deleteTask = (e) => {
+  e.parentElement.parentElement.remove();
+
+  data.splice(e.parentElement.parentElement.id, 1);
+
+  localStorage.setItem("data", JSON.stringify(data));
+
+  console.log(data);
+};
+let editTask = (e) => {
+  let selectedTask = e.parentElement.parentElement;
+
+  textInput.value = selectedTask.children[0].innerHTML;
+  dateInput.value = selectedTask.children[1].innerHTML;
+  textarea.value = selectedTask.children[2].innerHTML;
+
+  deleteTask(e);
+};
+
+</script>
+
+</body>
+</html>
