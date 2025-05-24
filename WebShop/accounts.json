@@ -1,0 +1,122 @@
+[
+  {
+    "id": "acc001",
+    "title": "Gold III Account",
+    "price": 30,
+    "rank": "Gold",
+    "region": "EUW",
+    "level": 120,
+    "description": "Solid Gold III account.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+  {
+    "id": "acc002",
+    "title": "Platinum IV Account",
+    "price": 60,
+    "rank": "Platinum",
+    "region": "NA",
+    "level": 140,
+    "description": "Great for competitive games.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+  {
+    "id": "acc003",
+    "title": "Bronze II Account",
+    "price": 15,
+    "rank": "Bronze",
+    "region": "EUNE",
+    "level": 80,
+    "description": "Budget-friendly starter account.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+  {
+    "id": "acc004",
+    "title": "Bronze II Account",
+    "price": 55,
+    "rank": "Bronze",
+    "region": "EUNE",
+    "level": 90,
+    "description": "Well-equipped with skins.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+  {
+    "id": "acc005",
+    "title": "Platinum III Account",
+    "price": 25,
+    "rank": "Platinum",
+    "region": "EUW",
+    "level": 100,
+    "description": "High winrate account.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+  {
+    "id": "acc006",
+    "title": "Master LP 66 Account",
+    "price": 115,
+    "rank": "Master",
+    "region": "EUNE",
+    "level": 220,
+    "description": "Top-tier ranked account.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+  {
+    "id": "acc007",
+    "title": "Iron I Account",
+    "price": 10,
+    "rank": "Iron",
+    "region": "NA",
+    "level": 60,
+    "description": "Basic account for casual play.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+    {
+    "id": "acc007",
+    "title": "Iron I Account",
+    "price": 10,
+    "rank": "Iron",
+    "region": "NA",
+    "level": 60,
+    "description": "Basic account for casual play.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+    {
+    "id": "acc007",
+    "title": "Iron I Account",
+    "price": 10,
+    "rank": "Iron",
+    "region": "NA",
+    "level": 60,
+    "description": "Basic account for casual play.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+    {
+    "id": "acc007",
+    "title": "Iron I Account",
+    "price": 10,
+    "rank": "Iron",
+    "region": "NA",
+    "level": 60,
+    "description": "Basic account for casual play.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+    {
+    "id": "acc007",
+    "title": "Iron I Account",
+    "price": 10,
+    "rank": "Iron",
+    "region": "NA",
+    "level": 60,
+    "description": "Basic account for casual play.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  },
+    {
+    "id": "acc007",
+    "title": "Iron I Account",
+    "price": 10,
+    "rank": "Iron",
+    "region": "NA",
+    "level": 60,
+    "description": "Basic account for casual play.",
+    "image": "slike/902700-3840x2160-desktop-4k-league-of-legends-logo-background.jpg"
+  }
+]

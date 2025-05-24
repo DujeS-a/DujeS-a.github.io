@@ -185,3 +185,6 @@ body {
 .account button:hover {
     background: #333;
 }
+ .pagination { text-align: center; padding: 20px; }
+        .pagination button { padding: 10px 15px; margin: 0 5px; cursor: pointer; border: 1px solid #ddd; background-color: #f0f0f0; }
+        .pagination button.active { background-color: #007bff; color: white; border-color: #007bff; }
