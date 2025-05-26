@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Sell Your League</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Admin Login</h1>
+    <p><strong>Username:</strong> admin</p>
+    <p><strong>Password:</strong> admin123</p>
+    <form id="login-form">
+      <label>Username:</label>
+      <input type="text" id="username" required>
+
+      <label>Password:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <p id="error-message" class="error"></p>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      if (user === 'admin' && pass === 'admin123') {
+        sessionStorage.setItem('loggedInUser', 'admin');
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('error-message').textContent = 'Invalid credentials';
+      }
+    });
+  </script>
+</body>
+</html>

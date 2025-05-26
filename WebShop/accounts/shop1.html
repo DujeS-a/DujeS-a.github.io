@@ -70,33 +70,38 @@
     });
 
     document.getElementById("purchase-form").addEventListener("submit", function (event) {
-      event.preventDefault(); 
+  event.preventDefault();
 
-      const firstName = document.getElementById('first-name').value;
-      const lastName = document.getElementById('last-name').value;
-      const email = document.getElementById('email').value;
-      const credentials = document.getElementById('credentials').value;
-      const phone = document.getElementById('phone').value;
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value;
+  const email = document.getElementById('email').value;
+  const credentials = document.getElementById('credentials').value;
+  const phone = document.getElementById('phone').value;
 
-      const selectedAccount = JSON.parse(sessionStorage.getItem('selectedAccount'));
+  const selectedAccount = JSON.parse(sessionStorage.getItem('selectedAccount'));
 
-      if (selectedAccount) {
-        console.log("--- Purchase Details ---");
-        console.log("Account:", selectedAccount.title, "(ID:", selectedAccount.id + ")");
-        console.log("Price:", "$" + selectedAccount.price);
-        console.log("Buyer Name:", firstName, lastName);
-        console.log("Email:", email);
-        console.log("Credentials (Example):", credentials); 
-        console.log("Phone:", phone);
+  const username = credentials.trim().split('/')[0]; // assuming "admin/password"
+  if (username !== 'admin') {
+    alert("Access Denied: Only admin can confirm purchases.\nPlease use the correct admin username.");
+    return;
+  }
 
-        alert(`Thank you, ${firstName}! Your purchase request for "${selectedAccount.title}" has been received.`);
+  if (selectedAccount) {
+    console.log("--- Purchase Details ---");
+    console.log("Account:", selectedAccount.title, "(ID:", selectedAccount.id + ")");
+    console.log("Price:", "$" + selectedAccount.price);
+    console.log("Buyer Name:", firstName, lastName);
+    console.log("Email:", email);
+    console.log("Credentials (Example):", credentials);
+    console.log("Phone:", phone);
 
+    alert(`Thank you, ${firstName}! Your purchase request for "${selectedAccount.title}" has been received.`);
+    sessionStorage.removeItem('selectedAccount');
+  } else {
+    alert("No account selected for purchase. Please go back and choose one.");
+  }
+});
 
-        sessionStorage.removeItem('selectedAccount'); 
-      } else {
-        alert("No account selected for purchase. Please go back and choose one.");
-      }
-    });
   </script>
 </body>
 
