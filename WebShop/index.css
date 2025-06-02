@@ -188,3 +188,77 @@ body {
  .pagination { text-align: center; padding: 20px; }
         .pagination button { padding: 10px 15px; margin: 0 5px; cursor: pointer; border: 1px solid #ddd; background-color: #f0f0f0; }
         .pagination button.active { background-color: #007bff; color: white; border-color: #007bff; }
+
+
+
+ @media (max-width: 600px) {
+  /* Remove aside layout on mobile */
+  #menu {
+    all: unset; /* Remove all aside default styles */
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    margin-top: 0;
+  }
+
+  /* Style the contents inside the menu */
+  #menu h2 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  #menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #menu ul li {
+    margin: 0;
+  }
+
+  #sort {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+
+  /* Accounts container: full width, stacked */
+  #accounts-list {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    background: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    width: 100%;
+  }
+
+  .account img {
+    width: 100px;
+    height: auto;
+    border-radius: 6px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .account > div {
+    flex-grow: 1;
+  }
+
+  .buy-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}

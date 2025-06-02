@@ -51,3 +51,24 @@ button {
   color: red;
   margin-top: 1rem;
 }
+
+
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  #login-container {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  input,
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

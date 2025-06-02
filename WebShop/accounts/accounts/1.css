@@ -91,3 +91,66 @@
   background-color: #00aaff;
   color: #ead898;
 }
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  header#header,
+  footer#footer {
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  #menu {
+    width: 100%;
+    position: static;
+    padding: 10px;
+  }
+
+  #main,
+  .accounts-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .account {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .account img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input,
+  button,
+  select {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
