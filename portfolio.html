@@ -17,6 +17,12 @@
       font-size: 32px;
     }
 
+    p {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
     .project {
       width: 100%;
       height: 200px;
@@ -34,15 +40,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      transition: opacity 0.5s ease;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 24px;
+      transition: filter 0.5s ease, opacity 0.5s ease;
     }
 
     .project .text {
-      background: #263e4f;
+      background: rgba(0, 0, 0, 0.8);
       color: white;
       z-index: 2;
     }
@@ -50,7 +56,7 @@
     .project .image {
       background-size: cover;
       background-position: center;
-      opacity: 0;
+      filter: blur(6px); /* Default blur */
       z-index: 1;
     }
 
@@ -59,7 +65,7 @@
     }
 
     .project:hover .image {
-      opacity: 1;
+      filter: blur(0); /* Sharp on hover */
     }
   </style>
 </head>
@@ -67,53 +73,56 @@
 <body>
   <h1>Ovo je moj portfolio</h1>
   <p>Ovdje možete vidjeti moje radove:</p>
+
   <a href="ppaprica/pporagovica.html">
     <div class="project">
       <div class="text">Projekt 1: Pporagovica</div>
       <div class="image" style="background-image: url('portfolio-photos/pporahovica.png');"></div>
     </div>
   </a>
+
   <a href="WebShop/login.html">
     <div class="project">
-      <div class="text">Projekt 2: Sell your League
-      </div>
+      <div class="text">Projekt 2: Sell your League</div>
       <div class="image" style="background-image: url('portfolio-photos/SYL.png');"></div>
     </div>
   </a>
+
   <a href="pwa/index.html">
     <div class="project">
-      <div class="text">Projekt 3: PWA
-      </div>
+      <div class="text">Projekt 3: PWA</div>
       <div class="image" style="background-image: url('portfolio-photos/PWA.png');"></div>
     </div>
   </a>
+
   <a href="calculator/calcularor.html">
     <div class="project">
-      <div class="text">Projekt 4: calculator!
-      </div>
+      <div class="text">Projekt 4: calculator!</div>
       <div class="image" style="background-image: url('portfolio-photos/CALC.png');"></div>
     </div>
   </a>
+
   <a href="CRUD/CRUD.html">
     <div class="project">
-      <div class="text">Projekt 5: CRUD1 (Post it notes)
-      </div>
+      <div class="text">Projekt 5: CRUD1 (Post it notes)</div>
       <div class="image" style="background-image: url('portfolio-photos/crud1.png');"></div>
     </div>
   </a>
+
   <a href="CRUD/CRUD2.html">
     <div class="project">
-      <div class="text">Projekt 5: CRUD2 (To do list)
-      </div>
+      <div class="text">Projekt 6: CRUD2 (To do list)</div>
       <div class="image" style="background-image: url('portfolio-photos/CRUD2.png');"></div>
     </div>
   </a>
+
   <a href="Bootstrap/bs-dz.html">
     <div class="project">
-      <div class="text">Projekt 6: Bootstrap</div>
+      <div class="text">Projekt 7: Bootstrap</div>
       <div class="image" style="background-image: url('portfolio-photos/BOOTSTRAP.png');"></div>
     </div>
   </a>
+
 </body>
 
 </html>
