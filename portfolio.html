@@ -1,56 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 2rem;
-      background-color: #f9f9f9;
-      color: #333;
+      margin: 0;
+      font-family: sans-serif;
+      background: #F9F9F9;
     }
 
-    h1, h2 {
-      color: #2c3e50;
+    h1 {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 32px;
     }
 
-    ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
+    .project {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+      margin-top: 4px;
     }
 
-    a {
-      color: #3498db;
-      text-decoration: none;
+    .project .text,
+    .project .image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .project .text {
+      background: #263e4f;
+      color: white;
+      z-index: 2;
+    }
+
+    .project .image {
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .project:hover .text {
+      opacity: 0;
+    }
+
+    .project:hover .image {
+      opacity: 1;
     }
   </style>
-<body>
-  <header>
-    <h1>Moj Portfolio</h1>
-    <p>Dobrodošli! Ovdje možete pogledati moje radove i saznati više o meni.</p>
-  </header>
+</head>
 
-  <main>
-    <section>
-      <h2>Projekti</h2>
-      <ul>
-        <li><a href="ppaprica/pporagovica.html">Projekt 1: Pporagovica</a></li>
-        <li><a href="WebShop/login.html">Projekt 2: Sell your League </a></li>
-        <li><a href="pwa/index.html">Projekt 3: PWA </a></li>
-        <li><a href="calculator/calcularor.html">Projekt 4: calculator! </a></li>
-        <li><a href="CRUD/CRUD.html">Projekt 5: CRUD1 </a></li>
-        <li><a href="CRUD/CRUD2.html">Projekt 5: CRUD2 </a></li>
-        <li><a href="Bootstrap/bs-dz.html">Projekt 6: Bootstrap </a></li>
-      </ul>
-    </section>
-  </main>
+<body>
+  <h1>Ovo je moj portfolio</h1>
+  <p>Ovdje možete vidjeti moje radove:</p>
+  <a href="ppaprica/pporagovica.html">
+    <div class="project">
+      <div class="text">Projekt 1: Pporagovica</div>
+      <div class="image" style="background-image: url('portfolio-photos/pporahovica.png');"></div>
+    </div>
+  </a>
+  <a href="WebShop/login.html">
+    <div class="project">
+      <div class="text">Projekt 2: Sell your League
+      </div>
+      <div class="image" style="background-image: url('portfolio-photos/SYL.png');"></div>
+    </div>
+  </a>
+  <a href="pwa/index.html">
+    <div class="project">
+      <div class="text">Projekt 3: PWA
+      </div>
+      <div class="image" style="background-image: url('portfolio-photos/PWA.png');"></div>
+    </div>
+  </a>
+  <a href="calculator/calcularor.html">
+    <div class="project">
+      <div class="text">Projekt 4: calculator!
+      </div>
+      <div class="image" style="background-image: url('portfolio-photos/CALC.png');"></div>
+    </div>
+  </a>
+  <a href="CRUD/CRUD.html">
+    <div class="project">
+      <div class="text">Projekt 5: CRUD1 (Post it notes)
+      </div>
+      <div class="image" style="background-image: url('portfolio-photos/crud1.png');"></div>
+    </div>
+  </a>
+  <a href="CRUD/CRUD2.html">
+    <div class="project">
+      <div class="text">Projekt 5: CRUD2 (To do list)
+      </div>
+      <div class="image" style="background-image: url('portfolio-photos/CRUD2.png');"></div>
+    </div>
+  </a>
+  <a href="Bootstrap/bs-dz.html">
+    <div class="project">
+      <div class="text">Projekt 6: Bootstrap</div>
+      <div class="image" style="background-image: url('portfolio-photos/BOOTSTRAP.png');"></div>
+    </div>
+  </a>
 </body>
+
 </html>
