@@ -45,26 +45,21 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Element references
       const accountsListContainer = document.getElementById('accounts-list');
       const paginationControlsContainer = document.getElementById('pagination-controls');
       const sortSelect = document.getElementById("sort");
 
-      // State variables
       const itemsPerPage = 9;
       let currentPage = 1;
-      let accountsData = []; // This will hold the master list of accounts
+      let accountsData = []; 
 
-      // Rank order for sorting
       const rankOrder = [
         "Iron", "Bronze", "Silver", "Gold",
         "Platinum", "Emerald", "Diamond",
         "Master", "GrandMaster", "Challenger"
       ];
 
-      // --- DATA FETCHING AND RENDERING ---
 
-      // Fetches account data from the JSON file
       async function fetchAccounts() {
         try {
           const response = await fetch('accounts.json');
@@ -72,7 +67,6 @@
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           accountsData = await response.json();
-          // Initial display
           renderUI();
         } catch (error) {
           console.error("Could not fetch accounts:", error);
@@ -80,16 +74,14 @@
         }
       }
 
-      // Main function to render the current state (sorted and paginated)
       function renderUI() {
         displayPage(currentPage);
         setupPagination();
       }
 
-      // Displays a specific page of accounts from the accountsData array
       function displayPage(page) {
         currentPage = page;
-        accountsListContainer.innerHTML = ''; // Clear previous items
+        accountsListContainer.innerHTML = '';
 
         const startIndex = (page - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
@@ -98,7 +90,6 @@
         paginatedItems.forEach(account => {
           const accountElement = document.createElement('div');
           accountElement.classList.add('account');
-          // Store data attributes for potential future use, though not strictly needed now
           accountElement.dataset.price = account.price;
           accountElement.dataset.rank = account.rank;
           accountElement.dataset.region = account.region;
@@ -119,13 +110,11 @@
         updatePaginationButtons();
       }
 
-      // --- PAGINATION ---
 
       function setupPagination() {
         paginationControlsContainer.innerHTML = '';
         const pageCount = Math.ceil(accountsData.length / itemsPerPage);
 
-        // Don't show pagination if there's only one page
         if (pageCount <= 1) return;
 
         for (let i = 1; i <= pageCount; i++) {
@@ -151,41 +140,32 @@
         });
       }
 
-      // --- EVENT LISTENERS ---
 
-      // 1. Sort functionality
       sortSelect.addEventListener("change", () => {
         const value = sortSelect.value;
 
-        // Sort the accountsData array, not the DOM elements
         accountsData.sort((a, b) => {
           if (value === "price-low-to-high") return a.price - b.price;
           if (value === "price-high-to-low") return b.price - a.price;
           if (value === "region") return a.region.localeCompare(b.region);
           if (value === "rank-low-to-high") return rankOrder.indexOf(a.rank) - rankOrder.indexOf(b.rank);
           if (value === "rank-high-to-low") return rankOrder.indexOf(b.rank) - rankOrder.indexOf(a.rank);
-          return 0; // Default case
+          return 0;
         });
 
-        // After sorting, go back to page 1 and re-render everything
         currentPage = 1;
         renderUI();
       });
 
-      // 2. "Buy Button" functionality using Event Delegation
       accountsListContainer.addEventListener('click', function (event) {
-        // Check if a buy button was clicked
         if (event.target.classList.contains('buy-button')) {
           const button = event.target;
           const accountId = button.dataset.id;
 
-          // Find the full account details from our master data array
           const selectedAccount = accountsData.find(acc => acc.id === accountId);
 
           if (selectedAccount) {
-            // Save the complete object to sessionStorage
             sessionStorage.setItem('selectedAccount', JSON.stringify(selectedAccount));
-            // Redirect
             window.location.href = 'accounts/shop1.html';
           } else {
             console.error("Could not find account details for ID:", accountId);
@@ -193,7 +173,6 @@
         }
       });
 
-      // --- INITIALIZATION ---
       fetchAccounts();
     });
   </script>
